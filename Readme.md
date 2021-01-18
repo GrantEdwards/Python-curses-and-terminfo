@@ -151,7 +151,7 @@ The third option will, like the second, work with terminals on serial
 ports that require delays and don't have flow control. This option is
 to route Python's stdout data through libc's FILE *stdout stream that
 is being used by curses.putp(). This require a bit more code, but is
-still pretty easy. Unless you wnat to call sys.stdout.flush() before
+still pretty easy. Unless you want to call sys.stdout.flush() before
 every call to putp(), you need to disable buffer in the TextIOWrapper
 by setting write_through to True.
 
