@@ -115,7 +115,16 @@ def putp(b):
 
 ~~~
 
-Note that the C standard doesn't require that stdout be a global
+This approach does not allow inserting control sequences into the text
+stream as shown in the first option, since control sequences must be
+output using curses.putp() so that delay specifiers can be replaced by
+an appropriate number of ASCII NUL characters.
+
+Note that it's not safe write arbitrary byte strings using
+curses.putp(), since putp() scans the byte string for terminfo delay
+specifiers and replaces them with zero or more NUL bytes.
+
+Also note that the C standard doesn't require that stdout be a global
 variable that can be accessed as shown above. It may be a macro that
 returns a pointer of the correct type. If that's how your libc works,
 then the above code may not be feasible — but there is a
@@ -133,14 +142,7 @@ def putp(b):
 
 ~~~
 
-It also does not allow inserting control sequences into the text
-stream as shown in the first option, since control sequences must be
-output using curses.putp() so that delay specifiers can be replaced by
-an appropriate number of ASCII NUL characters.
 
-Note that it's not safe write arbitrary byte strings using
-curses.putp(), since putp() scans the byte string for terminfo delay
-specifiers and replaces them with zero or more NUL bytes.
 
 
 ### Use Only libc FILE *stdout
