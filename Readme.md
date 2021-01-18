@@ -200,10 +200,10 @@ Four demo applications are provided:
  * `demo-broken.py` is a naive attempt that doesn't work due due to
    the independent buffering done by libc and Python.
    
- * `demo-pyoutput` is a working demonstration that show doing all
+ * `demo-pyoutput` is a working demon that does all
    output via native Python calls.
    
- * `demo-flush.py` is a working demo showing the use of both Python
+ * `demo-flush.py` is a working demo that uses both Python
    and libc output with flush() and fflush() calls.
    
  * `demo-libcoutput.py` is a working demo showing Python stdout data
