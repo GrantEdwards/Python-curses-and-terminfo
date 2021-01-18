@@ -5,7 +5,7 @@ Notes on using terminfo functions from the curses module without using
 any of the curses windowing functions.
 
 The naive approch to doing low-level terminal control in Python is to
-use the following terminfo functions from the `curses` module:
+use the following terminfo functions from the curses module:
 
  * `tigetstr()` to fetch the desired control sequence.
  * `tparm()` to parameterize the control sequence if required.
@@ -14,9 +14,9 @@ use the following terminfo functions from the `curses` module:
 Those functions work and do what they're supposed to (see man curses).
 However, when intermixed with calls to print() or sys.stdout.write(),
 the combination doesn't work. The problem is due to buffering of the
-output. The `putp()` call is writing to the libc FILE *stdout stream,
+output. The putp() call is writing to the libc FILE *stdout stream,
 which has built-in buffering before it writes to Unix file descriptor 1.
-Python's `sys.stdout` object also has built-in buffering before it
+Python's sys.stdout object also has built-in buffering before it
 writes to file descriptor 1. If you make interleaved calls like this,
 
 ~~~
@@ -63,7 +63,7 @@ $<N.N*/>
 where N.N is a floating point number with at most one decimal place
 followed and optional '*' and/or '/' suffix. The re.sub() call above
 removes that specifier (the re is a _bit_ off in that it will accept
-`$<1.2**>` and `$<1.2//` which aren't quite kosher delay specifiers).
+`$<1.2**>` and `$<1.2//>` which aren't quite kosher delay specifiers).
 
 After you've removed the delay specifier as shown above, then you can
 (after parameterizing with curses.tparm() as required) output them
