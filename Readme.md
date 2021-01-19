@@ -78,7 +78,7 @@ so if you call sys.stdout.write() and then sys.stdtout.buffer.write() you need t
 flush() after the first one if you want the output to be in the right order.
 It's easiest if don't sys.stdout.buffer.write() directly.
 
-The nice thing about converting the the control sequences to strings and
+The nice thing about converting the control sequences to strings and
 using that higher-level output calls is that you can then insert them
 directly into output using whatever mechanism is easiest:
 
