@@ -61,7 +61,7 @@ $<N.N*/>
 ~~~
 
 where N.N is a floating point number with at most one decimal place
-followed and optional '*' and/or '/' suffix. The re.sub() call above
+followed by an optional '*' and/or '/' suffix. The re.sub() call above
 removes that specifier (the re is a _bit_ off in that it will accept
 `$<1.2**>` and `$<1.2//>` which aren't quite kosher delay specifiers).
 
@@ -70,11 +70,17 @@ After you've removed the delay specifier as shown above, then you can
 using the normal Python I/O calls. Note that tigetstr() returns a byte
 string, and tparm() accepts and returns a byte string. Either you have
 to write them using sys.stdout.buffer.write(), or you need to decode
-them as ASCII to convert them from bytestr to str before writing them
+them as ASCII to convert them from byte to str before writing them
 using print() or sys.stdout.write().
 
-Converting them to ASCII is convenient, because then it allows easy
-insertion into normal string data as it's being output:
+Remember that sys.stdout does buffering before calling sys.stdout.buffer.write(),
+so if you call sys.stdout.write() and then sys.stdtout.buffer.write() you need to
+flush() after the first one if you want the output to be in the right order.
+It's easiest if don't sys.stdout.buffer.write() directly.
+
+The nice thing about converting the the control sequences to strings and
+using that higher-level output calls is that you can then insert them
+directly into output using whatever mechanism is easiest:
 
 ~~~
 
