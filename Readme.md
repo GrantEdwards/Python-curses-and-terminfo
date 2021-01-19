@@ -158,7 +158,7 @@ ports that require delays and don't have flow control. This option is
 to route Python's stdout data through libc's FILE *stdout stream that
 is being used by curses.putp(). This requires a bit more code, but is
 still pretty easy. Unless you want to call sys.stdout.flush() before
-every call to putp(), you need to disable buffer in the TextIOWrapper
+every call to putp(), you need to disable buffering in the TextIOWrapper
 by setting write_through to True.
 
 ~~~
