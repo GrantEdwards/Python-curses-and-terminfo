@@ -206,7 +206,7 @@ Four demo applications are provided:
  * `demo-broken.py` is a naive attempt that doesn't work due due to
    the independent buffering done by libc and Python.
    
- * `demo-pyoutput` is a working demon that does all
+ * `demo-pyoutput.py` is a working demo that does all
    output via native Python calls.
    
  * `demo-flush.py` is a working demo that uses both Python
