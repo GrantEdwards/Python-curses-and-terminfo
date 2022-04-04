@@ -79,8 +79,8 @@ flush() after the first one if you want the output to be in the right order.
 It's easiest if you don't call sys.stdout.buffer.write() directly.
 
 The nice thing about converting the control sequences to strings and
-using that higher-level output calls is that you can then insert them
-directly into output using whatever mechanism is easiest:
+using the higher-level output calls is that you can then insert the control
+sequences directly into output using whatever mechanism is easiest:
 
 ~~~
 
@@ -126,7 +126,7 @@ stream as shown in the first option, since control sequences must be
 output using curses.putp() so that delay specifiers can be replaced by
 an appropriate number of ASCII NUL characters.
 
-Note that it's not safe write arbitrary byte strings using
+Note that it's not safe to write arbitrary byte strings using
 curses.putp(), since putp() scans the byte string for terminfo delay
 specifiers and replaces them with zero or more NUL bytes.
 
