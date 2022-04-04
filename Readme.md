@@ -76,7 +76,7 @@ using print() or sys.stdout.write().
 Remember that sys.stdout does buffering before calling sys.stdout.buffer.write(),
 so if you call sys.stdout.write() and then sys.stdtout.buffer.write() you need to
 flush() after the first one if you want the output to be in the right order.
-It's easiest if don't sys.stdout.buffer.write() directly.
+It's easiest if you don't call sys.stdout.buffer.write() directly.
 
 The nice thing about converting the control sequences to strings and
 using that higher-level output calls is that you can then insert them
