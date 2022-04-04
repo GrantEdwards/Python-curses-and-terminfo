@@ -9,7 +9,7 @@ use the following terminfo functions from the curses module:
 
  * `tigetstr()` to fetch the desired control sequence.
  * `tparm()` to parameterize the control sequence if required.
- * `putp()` to write the control sequence to the terminal
+ * `putp()` to write the control sequence to the terminal.
  
 Those functions work and do what they're supposed to (see man curses).
 However, when intermixed with calls to print() or sys.stdout.write(),
