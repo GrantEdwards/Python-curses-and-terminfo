@@ -45,7 +45,7 @@ amount of delay in the byte stream.
 
 These delays are only need by old terminals, connected to real serial
 ports, without any flow control. If you don't run into anything like
-that, then you can just delete the termino delay specifiers from the
+that, then you can just delete the terminfo delay specifiers from the
 control sequences when you look them up. This is easiest if you wrap
 the curses tigets() call like this:
 
@@ -253,7 +253,7 @@ shown below. Then it will wait for [Enter], clear the screen and exit.
 The odd-numbered "Hi there asdf" output lines should be bold.
 
 On my systems, the "broken" demo will clear the screen and then wait
-for input (the prompt string won't appear).  Then the hi-there strings
+for input (the prompt string won't appear).  Then the "Hi there" strings
 get printed 8 times without being positioned or bolded, followed by
 the exit prompt. Then, the cursor will repsoition to the bottom left,
 and it will wait for Enter:
