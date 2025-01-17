@@ -12,8 +12,8 @@ use the following terminfo functions from the curses module:
  * `putp()` to write the control sequence to the terminal.
  
 Those functions work and do what they're supposed to (see man curses).
-However, when intermixed with calls to print() or sys.stdout.write(),
-the combination doesn't work. The problem is due to buffering of the
+**However, when intermixed with calls to print() or sys.stdout.write(),
+the combination doesn't work.** The problem is due to buffering of the
 output. The putp() call is writing to the libc FILE *stdout stream,
 which has built-in buffering before it writes to Unix file descriptor 1.
 Python's sys.stdout object also has built-in buffering before it
